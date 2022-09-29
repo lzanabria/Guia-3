@@ -1,16 +1,24 @@
 addEventListener("DOMContentLoaded", (e) => {
     setTimeout(() => {
-        let cant, n1, n2, sum, res, mult, div;
+        let cant, nom, ape, edad, nota1, nota2, nota3, prom, estado="";
         let cont=1;
-        cant=Number(prompt("Ingrese la cantidad de procesos que desea realizar: ", 10));
-        while(cont<=cant) {
-            n1=Number(prompt("Proceso #"+cont+"\n▶ Ingrese el valor del primer número: "));
-            n2=Number(prompt("Proceso #"+cont+"\n▶ Ingrese el valor del segundo número: "));
-            sum=n1+n2;
-            res=n1-n2;
-            mult=n1*n2;
-            div=n1/n2;
-            alert("Proceso #"+cont+"\n▶ Suma: "+sum+"\n▶ Resta: "+res+"\n▶ Multiplicación: "+mult+"\n▶ División: "+div);
+        cant=Number(prompt("Ingrese la cantidad de estudiantes: ",5));
+        while(cont<=cant){
+            nom=prompt("Estudiante #"+cont+"\n\tIngrese el nombre del estudiante: ");
+            ape=prompt("Estudiante #"+cont+"\n\tIngrese el apellido del estudiante: ");
+            edad=Number(prompt("Estudiante #"+cont+"\n\tIngrese la edad del estudiante: "));
+            nota1=Number(prompt("Estudiante #"+cont+"\n\tIngrese la primera nota del estudiante: "));
+            nota2=Number(prompt("Estudiante #"+cont+"\n\tIngrese la segunda nota del estudiante: "));
+            nota3=Number(prompt("Estudiante #"+cont+"\n\tIngrese la tercera nota del estudiante: "));
+            prom=(nota1+nota2+nota3)/3;
+
+            if(prom>=7){
+                estado="Aprobado";
+            }
+            else{
+                estado="Reprobado";
+            }
+            alert("▶ Estudiante: "+nom+" "+ape+"\n▶ Edad: "+edad+"\n\t▶ Nota 1: "+nota1+"\n\t▶ Nota 2: "+nota2+"\n\t▶ Nota 3: "+nota3+"\n▶ Promedio: "+prom+"\n▶ Estado: "+estado);
             cont++;
         }
     }, 500);
