@@ -1,44 +1,34 @@
 addEventListener("DOMContentLoaded", (e) => {
     setTimeout(() => {
-        let n_part, opc, cand_a=0, cand_b=0, cand_c=0, porc_a, porc_b, porc_c, ganador="";
-        let cont_part=1;
-        n_part=Number(prompt("Ingrese la cantidad de participantes: "));
-        while(cont_part<=n_part){
-            opc=Number(prompt("Candidatos para representante estudiantil: \n   1. Candidato A\n   2. Candidato B\n   3. Candidato C\n\tSeleccione un candidato: "));
-            switch(opc) {
+        let cant_veh, tipo_veh, turismo=0, autobus=0, camion=0, motocicleta=0, porc_turismo, porc_autobus, porc_camion, porc_motocicleta;
+        let cont_veh=1;
+        cant_veh=Number(prompt("Ingrese la cantidad de vehiculos que desea contar: ", 200));
+        while(cont_veh<=cant_veh){
+            tipo_veh=Number(prompt("▶ Vehículo #"+cont_veh+".\nTipos de vehículos: \n    1. Turismo \n     2. Autobus \n     3. Camion \n     4. Motocicleta \n\t Seleccione una opcion: "));
+            switch(tipo_veh) {
                 case 1:
-                    cand_a++;
+                    turismo++;
                     break;
                 case 2:
-                    cand_b++;
+                    autobus++;
                     break;
                 case 3:
-                    cand_c++;
+                    camion++;
+                    break;
+                case 4:
+                    motocicleta++;
                     break;
                 default:
-                    alert("¡Haz votado mal, voto anulado!");
+                    alert("Opcion no valida");
                     break;
             }
-            cont_part++;
+            cont_veh++;
         }
+        porc_turismo=(turismo*100)/cant_veh;
+        porc_autobus=(autobus*100)/cant_veh;
+        porc_camion=(camion*100)/cant_veh;
+        porc_motocicleta=(motocicleta*100)/cant_veh;
 
-        porc_a=(cand_a*100)/n_part;
-        porc_b=(cand_b*100)/n_part;
-        porc_c=(cand_c*100)/n_part;
-        
-        if(porc_a>=51){
-            ganador="Candidato A";
-        }
-        else if(porc_b>=51){
-            ganador="Candidato B";
-        }
-        else if(porc_c>=51){
-            ganador="Candidato C";
-        }
-        else{
-            ganador="Ninguno";
-        }
-
-        alert("Resultados. \n\tCandidato A: "+porc_a+"% de votos\n\tCandidato B: "+porc_b+"% de votos"+"\n\tCandidato C: "+porc_c+"% de votos\n▶ Ganador: "+ganador);
+        alert("Vehiculos totales: "+cant_veh+"\n▶ Turismo: "+turismo+"\n    \t Porcentaje: "+porc_turismo+"%\n▶ Autobus: "+autobus+"\n    \t Porcentaje: "+porc_autobus+"% \n▶ Camion: "+camion+"\n    \t Porcentaje: "+porc_camion+"% \n▶ Motocicleta: "+motocicleta+"\n    \t Porcentaje: "+porc_motocicleta+"%");
     }, 500);
 });
