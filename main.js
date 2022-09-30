@@ -1,27 +1,44 @@
 addEventListener("DOMContentLoaded", (e) => {
     setTimeout(() => {
-        let n_autos, digito, amarilla=0, rosa=0, roja=0, verde=0, azul=0;
-        let cont_autos=1;
-        n_autos=Number(prompt("Ingrese la cantidad de autos que desea registrar: "));
-        while(cont_autos<=n_autos){
-            digito=Number(prompt("Automóvil #"+cont_autos+"\n\t Ingrese el digito de la placa del auto: "));
-            if(digito==1 || digito==2){
-                amarilla++;
+        let n_part, opc, cand_a=0, cand_b=0, cand_c=0, porc_a, porc_b, porc_c, ganador="";
+        let cont_part=1;
+        n_part=Number(prompt("Ingrese la cantidad de participantes: "));
+        while(cont_part<=n_part){
+            opc=Number(prompt("Candidatos para representante estudiantil: \n   1. Candidato A\n   2. Candidato B\n   3. Candidato C\n\tSeleccione un candidato: "));
+            switch(opc) {
+                case 1:
+                    cand_a++;
+                    break;
+                case 2:
+                    cand_b++;
+                    break;
+                case 3:
+                    cand_c++;
+                    break;
+                default:
+                    alert("¡Haz votado mal, voto anulado!");
+                    break;
             }
-            else if(digito==3 || digito==4){
-                rosa++;
-            }
-            else if(digito==5 || digito==6){
-                roja++;
-            }
-            else if(digito==7 || digito==8){
-                verde++;
-            }
-            else if(digito==9 || digito==0){
-                azul++;
-            }
-            cont_autos++;
+            cont_part++;
         }
-        alert("▶ N° de autos con calcomania amarilla: "+amarilla+"\n▶ N° de autos con calcomania rosa: "+rosa+"\n▶ N° de autos con calcomania roja: "+roja+"\n▶ N° de autos con calcomania verde: "+verde+"\n▶ N° de autos con calcomania azul: "+azul);
+
+        porc_a=(cand_a*100)/n_part;
+        porc_b=(cand_b*100)/n_part;
+        porc_c=(cand_c*100)/n_part;
+        
+        if(porc_a>=51){
+            ganador="Candidato A";
+        }
+        else if(porc_b>=51){
+            ganador="Candidato B";
+        }
+        else if(porc_c>=51){
+            ganador="Candidato C";
+        }
+        else{
+            ganador="Ninguno";
+        }
+
+        alert("Resultados. \n\tCandidato A: "+porc_a+"% de votos\n\tCandidato B: "+porc_b+"% de votos"+"\n\tCandidato C: "+porc_c+"% de votos\n▶ Ganador: "+ganador);
     }, 500);
 });
