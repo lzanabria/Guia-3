@@ -1,34 +1,27 @@
 addEventListener("DOMContentLoaded", (e) => {
     setTimeout(() => {
-        let cant_veh, tipo_veh, turismo=0, autobus=0, camion=0, motocicleta=0, porc_turismo, porc_autobus, porc_camion, porc_motocicleta;
-        let cont_veh=1;
-        cant_veh=Number(prompt("Ingrese la cantidad de vehiculos que desea contar: ", 200));
-        while(cont_veh<=cant_veh){
-            tipo_veh=Number(prompt("▶ Vehículo #"+cont_veh+".\nTipos de vehículos: \n    1. Turismo \n     2. Autobus \n     3. Camion \n     4. Motocicleta \n\t Seleccione una opcion: "));
-            switch(tipo_veh) {
-                case 1:
-                    turismo++;
-                    break;
-                case 2:
-                    autobus++;
-                    break;
-                case 3:
-                    camion++;
-                    break;
-                case 4:
-                    motocicleta++;
-                    break;
-                default:
-                    alert("Opcion no valida");
-                    break;
+        let n_autos, digito, amarilla=0, rosa=0, roja=0, verde=0, azul=0;
+        let cont_autos=1;
+        n_autos=Number(prompt("Ingrese la cantidad de autos que desea registrar: "));
+        while(cont_autos<=n_autos){
+            digito=Number(prompt("Automóvil #"+cont_autos+"\n\t Ingrese el digito de la placa del auto: "));
+            if(digito==1 || digito==2){
+                amarilla++;
             }
-            cont_veh++;
+            else if(digito==3 || digito==4){
+                rosa++;
+            }
+            else if(digito==5 || digito==6){
+                roja++;
+            }
+            else if(digito==7 || digito==8){
+                verde++;
+            }
+            else if(digito==9 || digito==0){
+                azul++;
+            }
+            cont_autos++;
         }
-        porc_turismo=(turismo*100)/cant_veh;
-        porc_autobus=(autobus*100)/cant_veh;
-        porc_camion=(camion*100)/cant_veh;
-        porc_motocicleta=(motocicleta*100)/cant_veh;
-
-        alert("Vehiculos totales: "+cant_veh+"\n▶ Turismo: "+turismo+"\n    \t Porcentaje: "+porc_turismo+"%\n▶ Autobus: "+autobus+"\n    \t Porcentaje: "+porc_autobus+"% \n▶ Camion: "+camion+"\n    \t Porcentaje: "+porc_camion+"% \n▶ Motocicleta: "+motocicleta+"\n    \t Porcentaje: "+porc_motocicleta+"%");
+        alert("▶ N° de autos con calcomania amarilla: "+amarilla+"\n▶ N° de autos con calcomania rosa: "+rosa+"\n▶ N° de autos con calcomania roja: "+roja+"\n▶ N° de autos con calcomania verde: "+verde+"\n▶ N° de autos con calcomania azul: "+azul);
     }, 500);
 });
